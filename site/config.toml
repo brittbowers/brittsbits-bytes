@@ -14,9 +14,9 @@ canonifyurls = true
   cover = "images/dol_nuv.JPG"
   author = "Brittany Bowers"
   authorlocation = "San Francisco, USA"
-  authorwebsite = "http://vjeantet.fr"
+  authorwebsite = "http://brittanybowers.com"
   bio= "my bio"
-  logo = "images/logo.png"
+  logo = "images/home-outline.png"
   googleAnalyticsUserID = "UA-79101-12"
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   RSSLink = "http://feeds.feedburner.com/..."
