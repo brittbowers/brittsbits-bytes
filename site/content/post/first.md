@@ -1,5 +1,13 @@
 ---
-date: 2016-12-22T20:04:40.407Z
-title: First Post
+title: >-
+  Triage to AI: A Machine Learning Approach to Hospital Admissions
+  Classification
+date: '2020-01-08T12:04:40-08:00'
 ---
-Tristique integer nulla, velit orci elementum posuere odit urna amet, vel est amet etiam pharetra curabitur. Risus feugiat pharetra sit dui tempor sed, malesuada metus, ut sociis elementum, placerat dolor curabitur velit. Fermentum nulla, lacus volutpat, et neque suscipit vel nisl at, suspendisse sed consectetuer in. Donec ut tellus massa, ipsum placerat tincidunt, nam nunc amet sit aenean, eleifend porttitor non fermentum. Wisi ultricies ante nec ac dignissim, in neque suscipit eu blandit et, quis imperdiet. Nulla massa velit turpis condimentum, sed vel leo magna dolor at vivamus, lorem metus odio euismod. Libero non leo. Vestibulum lacus iaculis rutrum sagittis ac, a purus, egestas turpis nulla posuere ut sed lacinia, tellus suspendisse massa et nostra. Nascetur hac, ipsum cum, sem eros, tellus suspendisse non. Netus pretium. Auctor integer ut quis urna vestibulum quis, vivamus ligula dictum vel, et amet auctor donec interdum sagittis, fusce mollis sociosqu sem aptent nullam, eu enim hymenaeos et. Ridiculus fusce interdum, vitae volutpat pulvinar mauris netus.
+## A Brief History
+
+Have you ever had to wait for a long time in the ER? Wondering why that guy with the broken toe was called up before you? This is triage. Triage is the process by which medical providers can sort incoming patients based on resource availability and patient requirements. Now let’s back up a bit. What is this triage thing? The word triage comes from the French word “trier” meaning “to sort”. Around 1792 this handsome guy (below) was the general surgeon of Napoleon’s Imperial Guard.
+
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
