@@ -11,7 +11,7 @@ canonifyurls = true
 
 [params]
   description = "Adventures in data."
-  cover = "images/dol_nuv.JPG"
+  cover = "images/dol_dark.JPG"
   author = "Brittany Bowers"
   authorlocation = "San Francisco, USA"
   authorwebsite = "http://brittanybowers.com"
