@@ -1,7 +1,9 @@
++++
+date = "2019-11-06T10:15:23-04:00"
+draft = false
+title = "Triage to AI: A Machine Learning Approach to Hospital Admissions Classification"
 
-# Triage to AI: A Machine Learning Approach to Hospital Admissions Classification
-
-
++++
 
 ## A Brief History
 
