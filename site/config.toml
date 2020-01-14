@@ -55,9 +55,9 @@ pluralizelisttitles = false
   url = "https://resume.creddle.io/resume/4o83j4mhb8y"
   weight = 101
 
-[permalinks]
-  post = "/:slug/"
-[sitemap]
-  ChangeFreq = ""
-  Filename = "sitemap.xml"
-  Priority = "-1"
+#[permalinks]
+  #post = "/:slug/"
+#[sitemap]
+  #ChangeFreq = ""
+  #Filename = "sitemap.xml"
+  #Priority = "-1"
