@@ -8,6 +8,7 @@ googleAnalytics = ""
 # Define how many posts should appear on a site
 paginate = 5
 canonifyurls = true
+pluralizelisttitles = false
 
 [params]
   description = "Adventures in data."
@@ -18,17 +19,20 @@ canonifyurls = true
   bio= "Hello and welcome to my brain. Please hold while my cost function opitimizes for the global minima of peak currated content. Sources of erroneous loss can be attributed to snowboarding injuries and transit-related memes"
   googleAnalyticsUserID = "UA-79101-12"
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
-  RSSLink = "http://feeds.feedburner.com/..."
+  #RSSLink = "http://feeds.feedburner.com/..."
   githubName = "brittbowers"
   #twitterName = "vjeantet"
   # facebookName = ""
   linkedinName = "Brittany Bowers"
   # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = true
+  hjsStyle = "default"
+  customFooterPartial = "netlify.html"
   [params.social]
     twitter = "your_twitter"
 
 [[menu.main]]
+  pre = "<h3>Musings</h3>"
   name = "Blog"
   weight = -120
   identifier = "blog"
@@ -39,3 +43,21 @@ canonifyurls = true
   weight = -110
   identifier = "about"
   url = "/about"
+
+[[menu.main]]
+  pre = "<h3>Contact me</h3>"
+  name = "Github"
+  url = "https://github.com/brittbowers"
+  weight = 101
+
+[[menu.main]]
+  name = "Resume"
+  url = "https://resume.creddle.io/resume/4o83j4mhb8y"
+  weight = 101
+
+[permalinks]
+  post = "/:slug/"
+[sitemap]
+  ChangeFreq = ""
+  Filename = "sitemap.xml"
+  Priority = "-1"
