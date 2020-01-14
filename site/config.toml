@@ -15,8 +15,9 @@ canonifyurls = true
   author = "Brittany Bowers"
   authorlocation = "San Francisco, USA"
   authorwebsite = "http://brittanybowers.com"
-  bio= "my bio"
-  logo = "images/home-outline.png"
+  bio= "Hello and welcome to my brain. Please hold while my cost function opitimizes
+  for the global minima of peak currated content. Sources of erroneous loss can be
+  attributed to snowboarding injuries and transit-related memes"
   googleAnalyticsUserID = "UA-79101-12"
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   RSSLink = "http://feeds.feedburner.com/..."
@@ -27,4 +28,4 @@ canonifyurls = true
   # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = true
   [params.social]
-    twitter = "your_twitter"
+    #twitter = "your_twitter"
