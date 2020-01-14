@@ -1,4 +1,4 @@
-baseurl = "http://brittanybowers.com"
+baseurl = "/"
 languageCode = "en-us"
 title = "Britt's Bits & Bytes"
 theme = "hugo-theme-casper"
@@ -30,7 +30,6 @@ canonifyurls = true
 
 [[menu.main]]
   name = "Blog"
-  pre = "<h3>Topics</h3>"
   weight = -120
   identifier = "blog"
   url = "/"
