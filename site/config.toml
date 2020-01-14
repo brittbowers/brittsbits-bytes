@@ -26,7 +26,6 @@ pluralizelisttitles = false
   linkedinName = "Brittany Bowers"
   # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = true
-  customFooterPartial = "netlify.html"
   [params.social]
     twitter = "your_twitter"
 
