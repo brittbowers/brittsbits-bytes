@@ -27,3 +27,15 @@ canonifyurls = true
   hideHUGOSupport = true
   [params.social]
     twitter = "your_twitter"
+
+[[menu.main]]
+  name = "Blog"
+  weight = -120
+  identifier = "blog"
+  url = "/"
+
+[[menu.main]]
+  name = "About me"
+  weight = -110
+  identifier = "about"
+  url = "/about"
