@@ -877,7 +877,7 @@ body.nav-opened .menu-button .word {
     letter-spacing: -1px;
     font-weight: 700;
     font-family: "Open Sans", sans-serif;
-    color: #fff;
+    color: #556B2F /*#fff*/;
 }
 
 .page-description {
@@ -887,7 +887,7 @@ body.nav-opened .menu-button .word {
     font-weight: 400;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
-    color: rgba(255,255,255,0.8);
+    color:#556B2F /*rgba(255,255,255,0.8)*/ ;
 }
 
 .no-cover.main-header {
