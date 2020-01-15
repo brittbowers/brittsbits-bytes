@@ -12,7 +12,7 @@ pluralizelisttitles = false
 
 [params]
   description = "Adventures in data."
-  cover = "images/dol_dark.JPG"
+  cover = "images/lone_tree.JPG"
   author = "Brittany Bowers"
   authorlocation = "San Francisco, USA"
   authorwebsite = "http://brittanybowers.com"
