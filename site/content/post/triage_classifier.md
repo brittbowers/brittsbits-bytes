@@ -9,7 +9,7 @@ title = "Triage to AI: A Machine Learning Approach to Hospital Admissions Classi
 
 Have you ever had to wait for a long time in the ER? Wondering why that guy with the broken toe was called up before you? This is triage. Triage is the process by which medical providers can sort incoming patients based on resource availability and patient requirements. Now let’s back up a bit. What is this triage thing? The word triage comes from the French word “trier” meaning “to sort”. Around 1792 this handsome guy (below) was the general surgeon of Napoleon’s Imperial Guard.
 
-![](https://cdn-images-1.medium.com/max/4048/1*aKlH2ugtsaFd1SlaEaiIWw.jpeg)
+<img src="https://cdn-images-1.medium.com/max/4048/1*aKlH2ugtsaFd1SlaEaiIWw.jpeg" alt="larrey" width="400" height = "500"/>
 
 After the consistent bombardment of injured soldiers on a few ill-equipped doctors, Baron Dominique Jean Larrey (what a name) thought “Hey guys. I think there’s a better way.” Thus the original form of triage was born, and the French “ credited [Larrey] with designing a flying ambulance.”
 
@@ -87,6 +87,8 @@ That’s all folks! Thanks for tuning in, and at the very least if anyone asks y
 
 ## Resources
 
-1. Triage History: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2564046/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2564046/)
+1. Triage History: 
+[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2564046/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2564046/)
 
-1. Hospital Admissions Cost: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3303656/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3303656/)
+1. Hospital Admissions Cost: 
+[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3303656/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3303656/)
