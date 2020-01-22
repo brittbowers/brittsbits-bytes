@@ -1,6 +1,6 @@
 
 +++
-date = "2019-01-21T10:15:23-04:00"
+date = "2020-01-21T10:15:23-04:00"
 draft = false
 title = "A Unique Approach to Short Text Clustering (Part 1: Algorithmic Theory)"
 
