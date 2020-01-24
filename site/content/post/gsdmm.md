@@ -34,7 +34,7 @@ A good intuitive description of the differences between LDA and GSDMM can be fou
 
 ## Dirichlet Multinomial Mixture
 
-For the first part of this model, it is important to understand what a **Dirichlet distribution **is. The [Dirichlet distribution](https://en.wikipedia.org/wiki/Dirichlet_distribution) is essentially a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) over many dimensions (ie unique words). And a Beta distribution is simply a distribution of probabilities that represent the prior state in Bayesian statistics. Two parameters (alpha and beta) control the shape of the Beta distribution. The Beta distribution is updated with new information such as word frequency and weight within a document.
+For the first part of this model, it is important to understand what a **Dirichlet distribution** is. The [Dirichlet distribution](https://en.wikipedia.org/wiki/Dirichlet_distribution) is essentially a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) over many dimensions (ie unique words). And a Beta distribution is simply a distribution of probabilities that represent the prior state in Bayesian statistics. Two parameters (alpha and beta) control the shape of the Beta distribution. The Beta distribution is updated with new information such as word frequency and weight within a document.
 
 ### Components of DMM
 
@@ -42,11 +42,11 @@ For the first part of this model, it is important to understand what a **Dirichl
 
 Let’s go through the key parameters comprising this model:
 
-**alpha: **As described above alpha is a parameter affecting the shape of our probability distribution. More importantly, alpha is derived from the probability that a document will be grouped into a cluster. In the movie example, this is the probability of a student choosing a table.
+**alpha:** As described above alpha is a parameter affecting the shape of our probability distribution. More importantly, alpha is derived from the probability that a document will be grouped into a cluster. In the movie example, this is the probability of a student choosing a table.
 
-**beta: **Beta is the other shape parameter for our distribution. Beta comes from the similarity of words in a document to those of words in another document. Relating to the movie groups, beta is the probability that a student will join a table with similar movie choices. If beta is 0, for example, the student will only join tables with movies in common. This may not be the best strategy. Perhaps 2 students have lists of thriller movies, but they’re not the same movies. We still want the students to wind up in the same group of thriller movies. 
+**beta:** Beta is the other shape parameter for our distribution. Beta comes from the similarity of words in a document to those of words in another document. Relating to the movie groups, beta is the probability that a student will join a table with similar movie choices. If beta is 0, for example, the student will only join tables with movies in common. This may not be the best strategy. Perhaps 2 students have lists of thriller movies, but they’re not the same movies. We still want the students to wind up in the same group of thriller movies. 
 
-**phi**: Using k number of clusters (mixtures), phi is the multinomial distribution of clusters over words such that p(w|z = k) = phi where w = words and z = cluster label
+**phi:** Using k number of clusters (mixtures), phi is the multinomial distribution of clusters over words such that p(w|z = k) = phi where w = words and z = cluster label
 
 **theta:** Similarly, theta is a multinomial distribution taking into account alpha, so p(d|z=k) = theta where d = document. 
 
@@ -54,7 +54,7 @@ These parameters culminate in the probability that a document (d) is generated b
 
 ![From Yin and Wang paper](https://cdn-images-1.medium.com/max/2000/1*S9HxBBuSh44CdrGKIn8nfQ.png)*From Yin and Wang paper*
 
-Additionally, it’s important to point out that the paper assumes **symmetric **Dirichlet priors. This means the same alphas and betas are assumed at the start. Alpha indicates the same clusters are equally important while beta indicates the same words are equally important. Yin and Wang indicate that in future iterations of this algorithm betas should not have symmetric priors, and instead more popular words should have less importance. If a word shows up in every document it isn’t a very valuable signal (see pitfalls of TF-IDF again).
+Additionally, it’s important to point out that the paper assumes **symmetric** Dirichlet priors. This means the same alphas and betas are assumed at the start. Alpha indicates the same clusters are equally important while beta indicates the same words are equally important. Yin and Wang indicate that in future iterations of this algorithm betas should not have symmetric priors, and instead more popular words should have less importance. If a word shows up in every document it isn’t a very valuable signal (see pitfalls of TF-IDF again).
 
 ## Gibbs Sampling
 
@@ -62,6 +62,13 @@ Gibbs sampling describes the method of iterating through and reassigning cluster
 
 ## Other Short Text Algorithms
 
-I’ve focused on GSDMM because I learned the most about it through a personal project (see next post). There are other methods for short text clustering, but I have noticed that DMM is an underlying principle to many of these (GPU-DMM and GPU-PDMM adding in word embeddings), so I believe understanding these parameters and basic building blocks will serve well to developing more complex models. 
+I’ve focused on GSDMM because I learned the most about it through a personal project (see next post). There are other methods for short text clustering, but I have noticed that DMM is an underlying principle to many of these (GPU-DMM and GPU-PDMM adding in word embeddings), so I believe understanding these parameters and basic building blocks will serve well to developing more complex models.
 
+## References
+ 
+The original paper by Yin and Wang [here](https://towardsdatascience.com/short-text-topic-modeling-70e50a57c883)
+
+This [article](https://towardsdatascience.com/short-text-topic-modeling-70e50a57c883) summarizes GSDMM pretty well with relation to LDA and application.
+
+I didn't dive too deep into Gibbs Sampling. Another good article for LDA and Gibbs is [here](https://medium.com/analytics-vidhya/topic-modeling-using-lda-and-gibbs-sampling-explained-49d49b3d1045)
 
