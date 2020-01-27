@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "Britt's Bits & Bytes"
+title = "Britts & Bytes"
 theme = "hugo-theme-casper"
 disqusShortname = "spf13"
 # Enable Google Analytics by inserting your tracking code
