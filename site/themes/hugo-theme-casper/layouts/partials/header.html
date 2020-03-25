@@ -5,6 +5,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    {{ with .Params.images }}
+		{{ range first 1 . }}
+	     <meta property="og:image" content="{{ . | absURL }}" />
+		{{ end }}
+	  {{ end }}
+
     {{ partial "twitter_card.html" . }}
 
   	<meta property="og:title" content="{{ if ne .URL "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}" />
@@ -28,7 +34,7 @@
     </title>
 
     <meta name="description" content="{{ .Site.Params.description }}" />
-    <meta property="og:image" content="{{ .Site.Params.cover }}" />
+    <meta name="cover" content="{{ .Site.Params.cover }}" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
