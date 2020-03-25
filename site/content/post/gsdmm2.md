@@ -7,7 +7,7 @@ title = "A Unique Approach to Short Text Clustering (Part 2: Tweets spread like 
 
 *A demo focusing on the storage, preprocessing, and NLP required to perform short text modeling on Twitter data in Python. Per usual feel free to skip the personal motivation and direct yourself to the next section if my life is not interesting.*
 
-![round_barn](img/gsdmm_img/round_barn.jpeg)
+![round_barn](/img/gsdmm_img/round_barn.jpeg)
 
 ## Motivation
 
