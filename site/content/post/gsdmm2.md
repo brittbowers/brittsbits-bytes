@@ -1,5 +1,5 @@
 +++
-date = "2020-03-25 T10:15:23-04:00"
+date = "2020-03-25T10:15:23-04:00"
 draft = false
 title = "A Unique Approach to Short Text Clustering (Part 2: Tweets spread like Wildfire)"
 
@@ -29,7 +29,7 @@ Simply clone the repo, and queries are quite easy to run through the Exporter.py
 
 ```bash
 python Exporter.py --querysearch "wildfire" --since 2019-10-25 
---until  2019-11-04 --maxtweets 10
+											--until  2019-11-04 --maxtweets 10
 ```
 
 querysearch: allows you to specify a keyword <br/>
@@ -46,17 +46,17 @@ To set up your Mongo database and import into the MongoDB database enter somethi
 
 ```bash
 mongod db.createUser({ user: 'brittany', pwd: xxxx, 
-roles: [{ role: 'readWrite', db: 'fires' }] });
+						roles: [{ role: 'readWrite', db: 'fires' }] });
 ```
 Next import the files:
 
 ```bash
 mongoimport --username brittany --password xxxxx --db fires 
---collection all --type tsv --file all_fires.tsv --headerline
+			--collection all --type tsv --file all_fires.tsv --headerline
 ```
 Finally if you wish to do analysis in python you can import pyMongo as such:
 
-```py
+```python
 from pyMongo import MongoClient
 config = {
     'host': 'XXXXXX',
@@ -71,7 +71,7 @@ db = client.tweets
 
 Tweets come in pretty messy (as one would expect) with hashtags, links, emoji's, etc. Luckily someone already made a [preprocessor](https://pypi.org/project/tweet-preprocessor/) for some of these components. I combined this with a sprinkling of regex and checking for weirdness that the preprocessor missed. Here are a few lines I ran to preclean the tweets:
 
-```py
+```python
 import preprocessor as p
 import re
 
@@ -94,7 +94,7 @@ df['text'] = [re.sub('\w*\d\w*', ' ', text) for text in df['text']]
 
 There are also duplicates in the dataset due to retweets. I removed and summed those in case there's a useful signal in the number of retweets:
 
-```
+```python
 # Get rid of duplicate tweets, but keep track of number of retweets
 retweets = [x for x in df.groupby('text')['retweets'].sum()]
 df = df.drop_duplicates(subset = 'text')
@@ -105,7 +105,7 @@ df['retweets'] = retweets
 
 The central idea behind stemming and lemitization is to shorten words to their root for grouping (for instance wash, washed, washing, washer could all shorten to wash and for NLP that is probably enough). There are many packages attempting to do this, so I'll save the full discussion for a dedicated post. For now there are many other people discussing it [here](https://towardsdatascience.com/stemming-lemmatization-what-ba782b7c0bd8) and [here](https://www.datacamp.com/community/tutorials/stemming-lemmatization-python). Essentially stemming clips words (like I did with the wash example) and lemmatization uses [WordNet](https://wordnet.princeton.edu/) to assess the morphological representation of the word (for instance run and ran would fail stemming, but a lemmatizer could sort it out). I tried a few different packages for this and settled on a lemmatizer from Spacy, because it gave me the option to remove pronouns and other repeated parts of speach. A few lines I used for this are below:
 
-```
+```python
 from spacy.lang.en import English
 from spacy.lang.en.stop_words import STOP_WORDS
 import string
@@ -142,14 +142,14 @@ df['clean_tweet'] = [' '.join(spacy_tokenizer(tweet)) for tweet in df['text']]
 ```
 Because I specifically searched for wildfire tweets I added a few more stop words to the list that spacy provides due to early results. I removed words that were too common to give a valuable signal. For example:
 
-```
+```python
 stop_words.add('wildfire')
 stop_words.add('like')
 ```
 
 I also did my best to remove tweets which referred to things spreading "like wildfire" commonly associated with music tapes and the like. Below is an attempt:
 
-```
+```python
 for i,tweet in enumerate(df['clean_tweet']):
     if 'michael' in tweet:
         df = df.drop(i)
@@ -161,7 +161,7 @@ for i,tweet in enumerate(df['clean_tweet']):
 
 Tokenizing is simply to split a sentance into a list of words. Some topic modeling packages will accept an entire string and tokenize internally while others prefer the tokenized version. You can also group words into "bigrams" and "trigrams" and use this group of 2 or 3 words as the token. This is something to play around with depending on the dataset. I found pretty good success with bigrams. 
 
-```
+```python
 import nltk
 df['bigrams'] = [[gram for gram in nltk.ngrams(tweet.split(), 2)] for tweet in df['clean_tweet']]
 ```
@@ -173,6 +173,7 @@ Now we get to the good stuff! I already wrote up a post detailing how GSDMM work
 The first step is going to be fitting the gsdmm to the tokenized terms. I created a function for this:
 
 ```python
+import mgp
 def gsdmm(tokens, n_terms):
     '''
     This function takes a list of lists (tokens). It reteurns a fit mgp model.
@@ -189,7 +190,7 @@ def gsdmm(tokens, n_terms):
 
 Next, you can visualize the topics using the below lines.
 
-```py
+```python
 for i, topic in enumerate(mgp.cluster_word_distribution):
     sorted_topics = sorted(topic.items(), key=operator.itemgetter(1), 
     						reverse = True)
@@ -219,4 +220,4 @@ This can lead to the conclusion that perhaps the general public moved from a "sh
 
 ## To sum up
 
-I hope this tutorial was helpful. There are certainly many more NLP tools and clustering methods out there. I also performed a bit of sentiment analysis using out-of-the-box packages like Spacy and Vador. This was interesting to view by topic as well to analyze how, for instance, sentinment toward climate change has changed. 
+I hope this tutorial was helpful. There are certainly many more NLP tools and clustering methods out there. I also performed a bit of sentiment analysis using out-of-the-box packages like Spacy and Vador. It was interesting to view sentiment by topic, for instance, to see how sentinment toward climate change has changed. In the future it may also be interesting to wrap location data into this. As I mentioned above, collecting historical tweets through the repo over the API revealed far less location data. Scraping from the API over time and preprocessing into a database may be a cleaner pipeline for future work.
