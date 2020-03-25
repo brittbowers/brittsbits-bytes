@@ -200,7 +200,7 @@ for i, topic in enumerate(mgp.cluster_word_distribution):
 
 In the case of wildfires I got results resembling the following:
 
-![topics](/static/img/gsdmm_img/topics.png)
+![topics](/img/gsdmm_img/topics.png)
 
 There are a few other things you can do with the mgp package for GSDMM such as aggregating the number of documents in each cluster and predicting the most likely cluster of a new document. 
 
@@ -210,11 +210,11 @@ Ok so now you've clustered and found your topics. What can we do with this? In m
 
 **1. "Safety" tweets decline:** I named this topic category for those tweets resembling number of acres burned, fatality of fires, personal accounts, etc.
 
-![safety](/static/img/gsdmm_img/safety.png)
+![safety](/img/gsdmm_img/safety.png)
 
 **2. "Climate" tweets increase:** This topic resembles tweets related to air quality, power, and climate change. 
 
-![climate](/static/img/gsdmm_img/climate.png)
+![climate](/img/gsdmm_img/climate.png)
 
 This can lead to the conclusion that perhaps the general public moved from a "shocked" stance the first few fires to a "responsive" stance in more recent years. At least qualitatively I believe the discussion has shifted a bit more toward the end of fiscal policy (at least in California) in recent years. In other words...fires have happened every year, so the response is no longer a shock but "what are we going to do to fix this?" 
 
