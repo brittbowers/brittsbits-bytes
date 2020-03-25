@@ -1,5 +1,5 @@
 +++
-date = "2020-02-03T10:15:23-04:00"
+date = "2020-03-25 T10:15:23-04:00"
 draft = false
 title = "A Unique Approach to Short Text Clustering (Part 2: Tweets spread like Wildfire)"
 
@@ -172,7 +172,7 @@ Now we get to the good stuff! I already wrote up a post detailing how GSDMM work
 
 The first step is going to be fitting the gsdmm to the tokenized terms. I created a function for this:
 
-```py
+```python
 def gsdmm(tokens, n_terms):
     '''
     This function takes a list of lists (tokens). It reteurns a fit mgp model.
@@ -191,7 +191,8 @@ Next, you can visualize the topics using the below lines.
 
 ```py
 for i, topic in enumerate(mgp.cluster_word_distribution):
-    sorted_topics = sorted(topic.items(), key=operator.itemgetter(1), reverse = True)
+    sorted_topics = sorted(topic.items(), key=operator.itemgetter(1), 
+    						reverse = True)
     print('\n Topic: {}'.format(i))
     print(sorted_topics[:20])
 ```
