@@ -71,7 +71,7 @@ db = client.tweets
 
 Tweets come in pretty messy (as one would expect) with hashtags, links, emoji's, etc. Luckily someone already made a [preprocessor](https://pypi.org/project/tweet-preprocessor/) for some of these components. I combined this with a sprinkling of regex and checking for weirdness that the preprocessor missed. Here are a few lines I ran to preclean the tweets:
 
-```go {linenos=table,hl_lines=[8,"15-17"],linenostart=199}
+```python
 import preprocessor as p
 import re
 
