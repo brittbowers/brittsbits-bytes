@@ -7,6 +7,8 @@ title = "A Unique Approach to Short Text Clustering (Part 2: Tweets spread like 
 
 *A demo focusing on the storage, preprocessing, and NLP required to perform short text modeling on Twitter data in Python. Per usual feel free to skip the personal motivation and direct yourself to the next section if my life is not interesting.*
 
+![round_barn](img/gsdmm_img/round_barn.jpeg)
+
 ## Motivation
 
 About 2 years ago as I write this I flew from Atlanta to San Frencisco then rented a car and hauled up to Santa Rosa for the interview that would prompt my big move. As I drove over the beautiful Golden Gate bridge, wound through the redwoods, and started cresting into vineyard hills, the scenery shifted to a much more barren landscape. If you're from California it isn't hard to remember the horrible fires of 2017 in Santa Rosa. Neighborhoods were leveled. Stone foundations lined many. Now I said if you're a Californian you'll remember this. The story reads much differently from 2,000+ miles away in the humid Georgia air. My own naivity prompted me to wonder how the discussion shifts around large events like these both over time and over distance. How has the discussion changed and progressed since 2017? 
