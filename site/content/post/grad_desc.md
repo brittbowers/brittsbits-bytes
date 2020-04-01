@@ -7,7 +7,7 @@ title = "Code Gradient Descent From Scratch"
 
 *How to program gradient descent from scratch in python. For that time you got asked in an interview and fumbled.*
 
-<img src="/img/grad_desc/cover.jpeg" alt="grad_desc" width="200" height="200"/>
+<img src="/img/grad_desc/cover.jpeg" alt="grad_desc" width="500" height="500"/>
 
 ## Motivation
 
@@ -32,11 +32,11 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	The practical definition: Before I switched to data science I studied engineering, so my best examples of gradients are rooted in mechanics and fluid dynamics. Hopefully this analogy will be absolutely perfect for one person, and for everyone else I hope it's simple enough. Imagine a lake. Pretty calm typically. <br/>
 	
-	![grad_desc](/img/grad_desc/calm_lake.jpg)
+	<img src="/img/grad_desc/calm_lake.jpg" alt="grad_desc" width="500" height="500"/>
 	
 	Ok now it's a windy day and the water picks up a bit of current.
 	
-	![grad_desc](/img/grad_desc/windy-lake-provincial.jpeg)
+	<img src="/img/grad_desc/windy_lake.jpg" alt="grad_desc" width="500" height="500"/>
 	
 	When it's windy out does the lake have the same current throughout or does the wind tend to pick up and die down over time? I'd say the latter. So assuming that, the water can't have the same speed and direction across the entire surface right? How could we represent the speed and direction of the water on the surface at different parts of this lake? Well mechanical physics would tell you to use a velocity vector. Which represents the speed and direction. Like so:
 	
