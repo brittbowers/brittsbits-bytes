@@ -7,7 +7,7 @@ title = "Code Gradient Descent From Scratch"
 
 *How to program gradient descent from scratch in python. For that time you got asked in an interview and fumbled.*
 
-![grad_desc](/img/grad_desc/cover.jpeg)
+![grad_desc](/img/grad_desc/cover.jpeg=50x50)
 
 ## Motivation
 
