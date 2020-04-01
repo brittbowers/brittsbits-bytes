@@ -7,16 +7,16 @@ title = "A Unique Approach to Short Text Clustering (Part 2: Tweets spread like 
 
 *A demo focusing on the storage, preprocessing, and NLP required to perform short text modeling on Twitter data in Python. Per usual feel free to skip the personal motivation and direct yourself to the next section if my life is not interesting.*
 
-![round_barn](/img/gsdmm_img/round_barn.jpeg)
+![round_barn](img/gsdmm_img/round_barn.jpeg)
 
 ## Motivation
 
 About 2 years ago as I write this I flew from Atlanta to San Frencisco then rented a car and hauled up to Santa Rosa for the interview that would prompt my big move. As I drove over the beautiful Golden Gate bridge, wound through the redwoods, and started cresting into vineyard hills, the scenery shifted to a much more barren landscape. If you're from California it isn't hard to remember the horrible fires of 2017 in Santa Rosa. Neighborhoods were leveled. Stone foundations lined many. Now I said if you're a Californian you'll remember this. The story reads much differently from 2,000+ miles away in the humid Georgia air. My own naivity prompted me to wonder how the discussion shifts around large events like these both over time and over distance. How has the discussion changed and progressed since 2017? 
 
 Twitter is a pretty perfect platform for this kind of analysis for a few reasons: <br/>
-1) Quantity of data <br/>
-2) Diversity of opinion <br/>
-3) Hashtags make topics easy to track <br/>
+1. Quantity of data <br/>
+2. Diversity of opinion <br/>
+3. Hashtags make topics easy to track <br/>
 
 This post will focus on the methods and tools used to gather 2 years of tweets specific to wildfires and conduct topic modeling. 
 
@@ -41,6 +41,7 @@ maxtweets: maximum number of tweets (if you simply want all of them then cut thi
 
 **2. How do I store the data?** <br/>
 Any time you're working with a large amount of data there's the question of memory space and whether to pipeline into a database. I made 2 decisions here: <br/>
+
 1. I opened up an ec2 instance in AWS. I believe I picked the t2.xlarge instance, but anything large enough will do. If you run out of space there's always the option to create an image of your environment and move to a new size. <br/>
 2. I decided to use a database to store the tweets. I used MongoDB in my AWS instance and pyMongo to interface with python. 
 
