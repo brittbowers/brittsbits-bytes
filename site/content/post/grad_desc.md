@@ -7,7 +7,7 @@ title = "Code Gradient Descent From Scratch"
 
 *How to program gradient descent from scratch in python. For that time you got asked in an interview and fumbled.*
 
-![grad_desc](img/grad_desc/cover.jpeg)
+![grad_desc](/img/grad_desc/cover.jpeg)
 
 ## Motivation
 
@@ -32,23 +32,23 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	The practical definition: Before I switched to data science I studied engineering, so my best examples of gradients are rooted in mechanics and fluid dynamics. Hopefully this analogy will be absolutely perfect for one person, and for everyone else I hope it's simple enough. Imagine a lake. Pretty calm typically. <br/>
 	
-	![grad_desc](img/grad_desc/calm_lake.jpeg)
+	![grad_desc](/img/grad_desc/calm_lake.jpg)
 	
 	Ok now it's a windy day and the water picks up a bit of current.
 	
-	![grad_desc](img/grad_desc/windy-lake-provincial.jpeg)
+	![grad_desc](/img/grad_desc/windy-lake-provincial.jpeg)
 	
 	When it's windy out does the lake have the same current throughout or does the wind tend to pick up and die down over time? I'd say the latter. So assuming that, the water can't have the same speed and direction across the entire surface right? How could we represent the speed and direction of the water on the surface at different parts of this lake? Well mechanical physics would tell you to use a velocity vector. Which represents the speed and direction. Like so:
 	
-	![grad_desc](img/grad_desc/vel_vec.png)
+	![grad_desc](/img/grad_desc/vel_vec.png)
 	
 	Now this represents one gradient. This is the change in distance (in a particular direction) from one point to another with respect to time. Start combining these gradients together and we get something that looks like this:
 	
-	![grad_desc](img/grad_desc/vel_grad.png)
+	![grad_desc](/img/grad_desc/vel_grad.png)
 	
 	The math definition: For all you symbol lovers. A gradient is just the slope of the line tangent to the curve at whatever point you are assessing. This means a gradient is the sum of the partial derivative components reprepresting that function at that point. Which brings us to something like this:
 	
-	![grad_desc](img/grad_desc/grad_eq.png) <br/>
+	![grad_desc](/img/grad_desc/grad_eq.png) <br/>
 	*Upside down triangles for the win!*
 
 2. What are we descending and why?
@@ -124,7 +124,7 @@ def minimize(func, debug=False):
 ```
 Here I'm essentially just rolling through my gradients using the returned minimum from my gradient function to rerun the loop every time. Once I've reached a stopping difference that is close to zero I return the coordinates (x1,x2) of the function at that point. I'd also recommend visualizing this (if possible) to get a feel for your solution. My example looked like this:
 
-![grad_viz](img/grad_desc/grad_viz.png)
+![grad_viz](/img/grad_desc/grad_viz.png)
 
 ## In Conclusion
 
