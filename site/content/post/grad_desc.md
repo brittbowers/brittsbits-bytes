@@ -48,7 +48,7 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	The math definition: For all you symbol lovers. A gradient is just the slope of the line tangent to the curve at whatever point you are assessing. This means a gradient is the sum of the partial derivative components reprepresting that function at that point. Which brings us to something like this:
 	
-	<img src="/img/grad_desc/grad_eq.png" alt="grad_desc" width="500" height="200"/>
+	<img src="/img/grad_desc/grad_eq.png" alt="grad_desc" width="300" height="100"/>
 
 2. What are we descending and why?
 
