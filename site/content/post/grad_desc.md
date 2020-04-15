@@ -72,28 +72,28 @@ def gradient(func,x):
     # Neg points 
     x_neg = (x[0] - step, x[1]-step)
     y_neg = func(x_neg)
-    diff_neg = y_neg - y
+    diff_neg = y - y_neg
     # Pos points
     x_pos = (x[0] + step, x[1]+step)
     y_pos = func(x_pos)
-    diff_pos = y_pos - y
+    diff_pos = y - y_pos
     # Pos Neg points 
     x_pn = (x[0]+step, x[1]-step)
     y_pn = func(x_pn)
-    diff_pn = y_pn - y
+    diff_pn = y - y_pn
     # Neg Pos points
     x_np = (x[0]-step, x[1]+step)
     y_np = func(x_np)
-    diff_np = y_np - y
+    diff_np = y - y_np
     diff = [diff_neg, diff_pos, diff_pn, diff_np]
     
     # Compare diffs
-    if min(diff) == diff_neg:
+    if max(diff) == diff_neg:
         # Returning the magnitude and direction of the gradient
         grad = (x_neg, diff_neg)
-    elif min(diff)==diff_pos:
+    elif max(diff)==diff_pos:
         grad = (x_pos, diff_pos)
-    elif min(diff)==diff_pn:
+    elif max(diff)==diff_pn:
         grad = (x_pn, diff_pn)
     else:
         grad = (x_np, diff_np)
