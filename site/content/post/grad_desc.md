@@ -11,13 +11,13 @@ title = "Code Gradient Descent From Scratch"
 
 ## Motivation
 
-This is it. You've networked your way through the door by sending approximately 10 LinkedIn messages to perfect strangers and charming the recruiter through that 30 minute phone call summarizing your entire adult professional life. They've sent you...dun dun dun....the assignment. 4 hours they say. Just 4 short hours. "4 hours" you think to yourself "piece of cake". The email comes along with the link to a google doc of instructions. "Just 2 prompts" you think again, "No problem at all. Bet I'll have time to spare." You open the assignment. There. Sprawled across the first google sheet reads "Please minimize this unknown function". What? How? I don't even know the function! 
+This is it. You've networked your way through the door by sending approximately 10 LinkedIn messages to perfect strangers and charming the recruiter through that 30 minute phone call summarizing your entire adult professional life. They've sent you...dun dun dun....the assignment. 4 hours they say. Just 4 short hours. "4 hours" you think to yourself "piece of cake". The email comes along with the link to a google doc of instructions. "Just 2 prompts" you think again, "No problem at all. Bet I'll have time to spare." You open the assignment. There. Sprawled across the first google sheet reads "Please minimize this unknown function". Your brain goes dark and you contemplate whether you could pass a fifth grade math test.
 
 ## The Prompt
 
-Alright so let's take a fresh look at what this gem interviewer is trying to get you to do: 
+Alright so let's take a fresh look at what this interviewer is trying to get you to do: 
 
-**Given:** You pull the function from something like a pickle file, so you only know the inputs and output. 
+**Given:** You pull the function from something like a pickle file, so you only know the inputs (which you specify) and tbe output (given by the function). 
 
 **Problem:** Find the inputs which minimize the output of this function by computing the gradient at each given point. For example we'll use f(x1,x2) = y 
 
@@ -26,7 +26,6 @@ Alright so let's take a fresh look at what this gem interviewer is trying to get
 This is gradient descent. It's just broken down to the components. You know it. You've learned it before. There are so many articles on gradient descent that I can't justify why writing about it extensively here would provide value. A few good resources are this [article](https://towardsdatascience.com/understanding-the-mathematics-behind-gradient-descent-dde5dc9be06e) for quick review and the classic Andrew Ng [course](https://www.coursera.org/lecture/machine-learning/gradient-descent-8SpIM) for everything you've ever wanted to know. For now I'll remind you of the basics required to complete this challenge. 
 
 1. What is a gradient? <br/>
-	*Don't be confused by the upside down triangles. This is just subtraction.* <br/>
 	
 	The book definition: a gradient is the magnitude and direction of change from one point to another.
 	
@@ -46,19 +45,21 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	![grad_desc](/img/grad_desc/vel_grad.png)
 	
-	The math definition: For all you symbol lovers. A gradient is just the slope of the line tangent to the curve at whatever point you are assessing. This means a gradient is the sum of the partial derivative components reprepresting that function at that point. Which brings us to something like this:
+	The math definition: A gradient is the slope of the line tangent to the curve at whatever point you are assessing. This means a gradient is the sum of the partial derivative components reprepresting that function at that point. Which brings us to something like this:
 	
 	<img src="/img/grad_desc/grad_eq.png" alt="grad_desc" width="300" height="100"/>
 
 2. What are we descending and why?
 
-	Now imagine there is no function to simply find the partial derivative of as above. The function is unknown. Well, the answer reveals itself in the question. If the gradient is the magnitude and direction of change from one point to another then how would we find (perhaps) the minimum point of a function? Follow the gradients. Let's specifically follow the largest gradients that bring us in the right direction of that point. We'll specify a rate that we want to check these gradients (step) as well as the point we want to start at (x,y,z,etc). Then we'll check each gradient around that point. 
+	Now imagine the function above is unknown. Well, if the gradient is the magnitude and direction of change from one point to another then how would we find (perhaps) the minimum point of a function? Follow the gradients. Let's specifically follow the largest gradients that bring us in the right direction of that point. We'll specify a rate that we want to check these gradients (step size) as well as the point we want to start at (x,y,z,etc). Then we'll check each gradient around that point. 
 	
-	Why do we do this? In machine learning many times you don't know the relationship between the predicted variable and the features. In order to converge you optimize a [cost function](https://towardsdatascience.com/coding-deep-learning-for-beginners-linear-regression-part-2-cost-function-49545303d29f) for the lowest amount of error. The way you optimize this is by taking steps in the direction of the lowest error. I would presume that your interviewer, therefore, is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
+	Why do we do this? In machine learning you are typically trying to find some relationship between a predictor and a series of features. In order to converge you optimize a [cost function](https://towardsdatascience.com/coding-deep-learning-for-beginners-linear-regression-part-2-cost-function-49545303d29f) for the lowest amount of error. The way you optimize this is by taking steps in the direction of the lowest error and returning the gradient vector that corresponds. Once you reach a threshold minimum your gradient vector reveals the coefficients which optimize this cost function.
+	
+	 I would presume that your interviewer, therefore, is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
 	
 ## Coding the Solution
 
-Alright let's get down to it. You'll probably want to make 2 functions. I mean do whatever floats your boat, but this is what worked for me. The first function will simply compute the gradient given x = (x1, x2). I'm going to presume there are only 2 features (x1,x2) as defined by the prompt. The second function will use that first function to minimize your unknown (given) function f(x1,x2) = y. Starting with the gradient function we have:
+Alright let's get down to it. I made two functions to solve this problem. The first function will simply compute the maximum gradient given x = (x1, x2). I'm going to presume there are only 2 features (x1,x2) as defined by the prompt. The second function will use that first function to minimize your unknown (given) function f(x1,x2) = y by following gradients in the first function. Starting with the first function we have:
 
 ```python
 def gradient(func,x):
@@ -124,6 +125,8 @@ def minimize(func, debug=False):
 Here I'm essentially just rolling through my gradients using the returned minimum from my gradient function to rerun the loop every time. Once I've reached a stopping difference that is close to zero I return the coordinates (x1,x2) of the function at that point. I'd also recommend visualizing this (if possible) to get a feel for your solution. My example looked like this:
 
 ![grad_viz](/img/grad_desc/grad_viz.png)
+
+As you can see there is a local minima in addition to the global minima. I get around this problem by initializing my script at randomly different starting points to ensure I'm reaching the true minimum. 
 
 ## In Conclusion
 
