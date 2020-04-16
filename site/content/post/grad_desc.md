@@ -100,7 +100,7 @@ def gradient(func,x):
         grad = (x_np, diff_np)
     return grad
 ```
-What's happening here is that I'm grabbing the difference between every point around my given point (x1,x2) and my given point + the step size I instantiated (here it is 1). Then I'll find the minimum of these 4 differences (the maximum negative gradient) and return the direction (x1+step,x2+step) and magnitude (difference) associated. 
+What's happening here is that I'm grabbing the difference between every point around my given point (x1,x2) and my given point + the step size I instantiated (here it is 1). Then I'll find the maximum of these 4 differences and return the direction (x1+step,x2+step) and magnitude (difference) associated. 
 
 Let's take a look at the minimizing function:
 
@@ -122,11 +122,11 @@ def minimize(func, debug=False):
             print(grad[0],grad[1])
     return print("Minimum Point: (%.2f,%.2f)"%(grad[0][0], grad[0][1]))
 ```
-Here I'm essentially just rolling through my gradients using the returned minimum from my gradient function to rerun the loop every time. Once I've reached a stopping difference that is close to zero I return the coordinates (x1,x2) of the function at that point. I'd also recommend visualizing this (if possible) to get a feel for your solution. My example looked like this:
+Here I'm essentially just stepping through my gradients using the returned maximum from my gradient function to rerun the loop every time. Once I've reached a stopping difference that is close to zero I return the coordinates (x1,x2) of the function at that point. I'd also recommend visualizing this (if possible) to get a feel for your solution. My example looked like this:
 
 ![grad_viz](/img/grad_desc/grad_viz.png)
 
-As you can see there is a local minima in addition to the global minima. I get around this problem by initializing my script at randomly different starting points to ensure I'm reaching the true minimum. 
+As you can see there is a local minimum in addition to the global minimum. I got around this problem by initializing my script at randomly different starting points to ensure I'm reaching the true minimum. 
 
 ## In Conclusion
 
