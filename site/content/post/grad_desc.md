@@ -55,7 +55,27 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	Why do we do this? In machine learning you are typically trying to find some relationship between a predictor and a series of features. In order to converge you optimize a [cost function](https://towardsdatascience.com/coding-deep-learning-for-beginners-linear-regression-part-2-cost-function-49545303d29f) for the lowest amount of error. The way you optimize this is by taking steps in the direction of the lowest error and returning the gradient vector that corresponds. Once you reach a threshold minimum your gradient vector reveals the coefficients which optimize this cost function.
 	
-	 I would presume that your interviewer, therefore, is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
+	Put another way...perhaps you've seen this before:
+	
+	<img src="/img/grad_desc/grad_eq_3.png" alt="grad_desc" width="300" height="100"/>
+
+	This is the equation for gradient descent assuming you have some known cost function J(theta). A common cost function for linear regression, for instance, is the sum of squared error:
+
+	<img src="/img/grad_desc/grad_eq_4.png" alt="eq_sse" width="300" height="100"/>
+
+	In this equation we are computing squared error via our target (y_pred) and our output (y_actual). Next we compute the mean of squared errors by diving by our number of observations (n). To combine both of our equations here in the case of linear regression let's represent our cost function in terms of squared error.
+
+	<img src="/img/grad_desc/grad_eq_5.png" alt="eq_cost" width="300" height="100"/>
+	
+	Here we are using m instead of n to indicate number of observations in this step, and we are dividing by 2 simply to make differentiation easier when we compute the gradients. h(theta) represents the target (y_pred) and y represents output (y_actual). Plugging back into the first equation you end up with something like the following:
+
+	<img src="/img/grad_desc/grad_eq_6.png" alt="eq_grad" width="300" hegiht="100"/>
+
+	Here alpha represents learning rate as in the first equation, but we have already solved the partial derivative for the gradient. 
+
+	Moving back to the interview question where the function is unknown. We have to use a guess and check method of finding the minimum gradient. Therefore, instead of computing the gradient via partial derivatives and learning rate, I will simply specify a step size (as you will see below). I will use that step size to check each gradient around the current point for the minimum.
+
+	This is pretty brute force, but I would presume that your interviewe is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
 	
 ## Coding the Solution
 
