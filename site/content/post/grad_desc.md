@@ -29,7 +29,7 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	
 	The book definition: a gradient is the magnitude and direction of change from one point to another.
 	
-	The practical definition: Before I switched to data science I studied engineering, so my best examples of gradients are rooted in mechanics and fluid dynamics. Hopefully this analogy will be absolutely perfect for one person, and for everyone else I hope it's simple enough. Imagine a lake. Pretty calm typically. <br/>
+	The practical definition: Before I switched to data science I studied engineering, so my best examples of gradients are rooted in mechanics and fluid dynamics. Hopefully this analogy will be absolutely perfect for one person, and tolerable for everyone else. Imagine a lake. Pretty calm typically. <br/>
 	
 	<img src="/img/grad_desc/calm_lake.jpg" alt="grad_desc" width="500" height="500"/>
 	
@@ -50,10 +50,8 @@ This is gradient descent. It's just broken down to the components. You know it. 
 	<img src="/img/grad_desc/grad_eq.png" alt="grad_desc" width="300" height="100"/>
 
 2. What are we descending and why?
-
-	Now imagine the function above is unknown. Well, if the gradient is the magnitude and direction of change from one point to another then how would we find (perhaps) the minimum point of a function? Follow the gradients. Let's specifically follow the largest gradients that bring us in the right direction of that point. We'll specify a rate that we want to check these gradients (step size) as well as the point we want to start at (x,y,z,etc). Then we'll check each gradient around that point. 
 	
-	Why do we do this? In machine learning you are typically trying to find some relationship between a predictor and a series of features. In order to converge you optimize a [cost function](https://towardsdatascience.com/coding-deep-learning-for-beginners-linear-regression-part-2-cost-function-49545303d29f) for the lowest amount of error. The way you optimize this is by taking steps in the direction of the lowest error and returning the gradient vector that corresponds. Once you reach a threshold minimum your gradient vector reveals the coefficients which optimize this cost function.
+	In machine learning you are typically trying to find some relationship between a predictor and a series of features. In order to converge you optimize a [cost function](https://towardsdatascience.com/coding-deep-learning-for-beginners-linear-regression-part-2-cost-function-49545303d29f) for the lowest amount of error. The way you optimize this is by taking steps in the direction of the lowest error and returning the gradient vector that corresponds. Once you reach a threshold minimum your gradient vector reveals the coefficients which optimize this cost function.
 	
 	Put another way...perhaps you've seen this before:
 	
@@ -73,9 +71,9 @@ This is gradient descent. It's just broken down to the components. You know it. 
 
 	Here alpha represents learning rate as in the first equation, but we have already solved the partial derivative for the gradient. 
 
-	Moving back to the interview question where the function is unknown. We have to use a guess and check method of finding the minimum gradient. Therefore, instead of computing the gradient via partial derivatives and learning rate, I will simply specify a step size (as you will see below). I will use that step size to check each gradient around the current point for the minimum.
+	Let's move back to the interview question where the (cost) function is unknown. We don't have the luxury of computing partial derivatives. Therefore, we'll have to use a guess and check method of finding the maximum gradient. Instead of computing the gradient, I will simply specify a step size (as you will see below). I will use that step size to check each gradient around the current point.
 
-	This is pretty brute force, but I would presume that your interviewe is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
+	This is pretty brute force, but I would presume that your interviewer is testing whether or not you can dive under the hood of your algorithmic vehicle and conduct a bit of manual maintenance. 
 	
 ## Coding the Solution
 
@@ -150,9 +148,11 @@ As you can see there is a local minimum in addition to the global minimum. I got
 
 ## In Conclusion
 
-Some form of this problem is pretty typical for a machine learning interview. It shows that you understand the nuts and bolts behind the powerful algorithms you are using. I also think it's a fun puzzle for showing some basic python chops as you really don't need any fancy packages for this. A few references I used to approach this problem are below and I wish you the best of luck in future interviewing endeavors. May you descend gradients with grace.
+Some form of this problem is pretty typical for a machine learning interview. I also think it's a fun puzzle for showing some basic python chops as you really don't need any fancy packages for this. A few references I used to approach this problem are below and I wish you the best of luck in future interviewing endeavors. May you descend gradients with grace.
 
 ## References 
 
 - [Wikepedia on Gradients](https://en.wikipedia.org/wiki/Gradient) 
 - [Gradient Descent in Python](https://towardsdatascience.com/gradient-descent-in-python-a0d07285742f)
+- [Gradient Descent Math](https://towardsdatascience.com/understanding-the-mathematics-behind-gradient-descent-dde5dc9be06e)
+- [Gradient Descent Equations](https://www.geeksforgeeks.org/gradient-descent-in-linear-regression/) 
