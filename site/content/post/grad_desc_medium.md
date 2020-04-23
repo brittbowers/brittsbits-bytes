@@ -81,10 +81,67 @@ This is pretty brute force, but I would presume that your interviewer is testing
 
 Alright, let’s get down to it. I made two functions to solve this problem. The first function will simply compute the maximum gradient given x = (x1, x2). I’m going to presume there are only 2 features (x1,x2) as defined by the prompt. The second function will use that first function to minimize your unknown (given) function f(x1,x2) = y by following gradients in the first function. Starting with the first function we have:
 
+```python
+def gradient(func,x):
+	# func = the unknown function you are given
+	# x = (x1,x2) 
+    # Define step size and current y
+    step = 1
+    y = func(x)
+    
+    # Check all points around x,y for the largest difference (gradient magnitude)
+    # Neg points 
+    x_neg = (x[0] - step, x[1]-step)
+    y_neg = func(x_neg)
+    diff_neg = y - y_neg
+    # Pos points
+    x_pos = (x[0] + step, x[1]+step)
+    y_pos = func(x_pos)
+    diff_pos = y - y_pos
+    # Pos Neg points 
+    x_pn = (x[0]+step, x[1]-step)
+    y_pn = func(x_pn)
+    diff_pn = y - y_pn
+    # Neg Pos points
+    x_np = (x[0]-step, x[1]+step)
+    y_np = func(x_np)
+    diff_np = y - y_np
+    diff = [diff_neg, diff_pos, diff_pn, diff_np]
+    
+    # Compare diffs
+    if max(diff) == diff_neg:
+        # Returning the magnitude and direction of the gradient
+        grad = (x_neg, diff_neg)
+    elif max(diff)==diff_pos:
+        grad = (x_pos, diff_pos)
+    elif max(diff)==diff_pn:
+        grad = (x_pn, diff_pn)
+    else:
+        grad = (x_np, diff_np)
+    return grad
+```
 What’s happening here is that I’m grabbing the difference between every point around my given point (x1,x2) and my given point + the step size I instantiated (here it is 1). Then I’ll find the maximum of these 4 differences and return the direction (x1+step,x2+step) and magnitude (difference) associated.
 
 Let’s take a look at the minimizing function:
 
+```python
+def minimize(func, debug=False):
+	# func = the unknown function you are given
+	# Define where you want to start minimizing from (x)
+	# Define the threshold difference to stop at (closest to minimum point)
+    x = (600,600)
+    diff = 99999999
+    stop = 0.00005
+    
+    # Until you reach threshold (stop) --> minimize
+    while abs(diff) > stop:
+        grad = gradient(func,x)
+        diff = grad[1]
+        x = grad[0]
+        if debug:
+            print(grad[0],grad[1])
+    return print("Minimum Point: (%.2f,%.2f)"%(grad[0][0], grad[0][1]))
+```
 Here I’m stepping through my gradients using the returned maximum from my gradient function to rerun the loop every time. Once I’ve reached a stopping difference that is close to zero I return the coordinates (x1,x2) of the function at that point. I’d also recommend visualizing this (if possible) to get a feel for your solution. My example looked like this:
 
 ![Image by Author](https://cdn-images-1.medium.com/max/2000/1*jA8xol_o-Y2tGh9roSiAjg.png)*Image by Author*
