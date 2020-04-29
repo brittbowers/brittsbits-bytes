@@ -1,9 +1,9 @@
-+++
-date = "2019-11-06T10:15:23-04:00"
-draft = false
-title = "Triage to AI: A Machine Learning Approach to Hospital Admissions Classification"
-
-+++
+---
+title: >-
+  Triage to AI: A Machine Learning Approach to Hospital Admissions
+  Classification
+date: '2019-11-06T10:15:23-04:00'
+---
 
 ## A Brief History
 
@@ -61,7 +61,7 @@ The target (admitted vs not admitted) was unbalanced (we’ll deal with that sna
 
 ## Modeling
 
-Before diving into the modeling let’s talk about metrics. Recall is most important to me here because I’d rather over-allocate resources than under-allocate. What do I mean by that? High recall indicates that I’m good at catching most patients who will be admitted. I may predict too many admitted patients at times, but rarely will I be surprised with no doctors and 100 patients queued up in the waiting room for admittance. To prioritize recall while also ensuring that I’m not hugely over-allocating resources, I set up an Fbeta. I weighed my beta value more heavily toward recall to strongly penalize models with poor recall. Below is an example of one confusion matrix I generated:
+Before diving into the modeling let’s talk about metrics. I’m going to use a weighted score (called Fbeta) of two important classification metrics: precision and recall. Precision indicates my true positives from my actual results. This is, out of all actual hospital admissions, how many I was able to predict. Recall describes my true positives from my predicted results. This is how many patients I predicted would be admitted who were actually admitted vs those I predicted to be admitted who were actually not. If I have low recall I could end up over-allocating resources because I predict more patient admissions than reality. Low precision, however, could mean that I miss patients who should be admitted. Precision is more important to me here because I’d rather over-allocate resources than under-allocate. To prioritize precision while also ensuring that I’m not hugely over-allocating resources, I weighed my beta value more heavily toward precision to strongly penalize models with poor precision. Below is an example of one confusion matrix I generated:
 
 ![Confused?](https://cdn-images-1.medium.com/max/2000/1*6m4D44b-qtlqZBMbNPxx_w.png)*Confused?*
 
