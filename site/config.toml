@@ -15,7 +15,7 @@ PygmentsStyle = "monokai"
 
 [params]
   description = "Adventures in data."
-  cover = "images/lone_tree.JPG"
+  cover = "images/tahoe.jpg"
   author = "Brittany Bowers"
   authorlocation = "San Francisco, USA"
   authorwebsite = "http://brittanybowers.com"
