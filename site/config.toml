@@ -43,7 +43,7 @@ PygmentsStyle = "monokai"
   name = "About me"
   weight = -110
   identifier = "about"
-  url = "/about"
+  url = "/about-me"
 
 [[menu.main]]
   pre = "<h3>Contact me</h3>"
