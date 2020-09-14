@@ -53,7 +53,7 @@ PygmentsStyle = "monokai"
 
 [[menu.main]]
   name = "Resume"
-  url = "https://www.canva.com/design/DAD7BozIDRQ/4L77IwQERHI4bfR9ZxMGTg/view?utm_content=DAD7BozIDRQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton"
+  url = "https://www.canva.com/design/DAD7BozIDRQ/4L77IwQERHI4bfR9ZxMGTg/view?utm_content=DAD7BozIDRQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton" 
   weight = 101
 
 [permalinks]
